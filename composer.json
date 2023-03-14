@@ -1,0 +1,21 @@
+{
+    "name": "os/php-framework",
+    "type": "library",
+    "autoload": {
+        "files": ["src/Framework/globals.php"],
+        "psr-4": {
+            "Os\\": "src/"
+        }
+    },
+    "require": {
+      "ext-pdo": "*",
+      "ext-yaml": "*",
+      "ext-readline": "*",
+      "ext-apcu": "*",
+      "ext-dom": "*",
+      "ext-curl": "*",
+      "ext-mbstring": "*",
+      "php": ">=8.1",
+      "ext-simplexml": "*"
+    }
+}
