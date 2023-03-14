@@ -1,5 +1,5 @@
 {
-    "name": "os/php-framework",
+    "name": "olli-6721/php-framework-package",
     "type": "library",
     "autoload": {
         "files": ["src/Framework/globals.php"],
