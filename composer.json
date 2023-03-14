@@ -2,6 +2,7 @@
     "name": "olli-6721/php-framework-package",
     "version": "0.0.1",
     "type": "library",
+    "license": "MIT",
     "autoload": {
         "files": ["src/Framework/globals.php"],
         "psr-4": {
