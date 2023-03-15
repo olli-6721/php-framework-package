@@ -45,7 +45,7 @@ class FileBasedCacheProvider implements CacheProviderInterface
     public static function clear(): void
     {
         $fs = new Filesystem();
-        $cacheFiles = $fs->ls(self::CACHE_DIRECTORY, Filesystem::FLAG_ONLY_FILES);
+        $cacheFiles = $fs->ls(self::CACHE_DIRECTORY, Filesystem::FLAG_ONLY_FILES) ?? [];
         foreach ($cacheFiles as $file){
             $fs->delete(sprintf("%s%s%s", self::CACHE_DIRECTORY, DIRECTORY_SEPARATOR, $file));
         }
