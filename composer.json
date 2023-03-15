@@ -3,17 +3,25 @@
     "version": "0.0.1",
     "type": "library",
     "license": "MIT",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "autoload": {
         "files": ["src/Framework/globals.php"],
         "psr-4": {
             "Os\\": "src/"
         }
     },
+    "authors": [
+      {
+        "name": "Oliver Schwietering",
+        "email": "oliver.schwietering@gmail.com",
+        "role": "Developer"
+      }
+    ],
     "require": {
       "ext-pdo": "*",
       "ext-yaml": "*",
       "ext-readline": "*",
-      "ext-apcu": "*",
       "ext-dom": "*",
       "ext-curl": "*",
       "ext-mbstring": "*",
