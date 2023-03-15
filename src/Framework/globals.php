@@ -1,6 +1,6 @@
 <?php
 
-$extensions = ["apcu", "pdo", "yaml", "readline", "dom", "curl", "mbstring"];
+$extensions = ["pdo", "yaml", "readline", "dom", "curl", "mbstring"];
 foreach($extensions as $extension){
     if(!extension_loaded($extension)){
         throw new Exception(sprintf("Extension '%s' is not loaded (required extensions are: '%s')", $extension, implode(',', $extensions)));
