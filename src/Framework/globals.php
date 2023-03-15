@@ -7,10 +7,6 @@ foreach($extensions as $extension){
     }
 }
 
-if(!apcu_enabled()){
-    throw new Exception("APCU Cache is not enabled (Is 'apc.enable_cli' set to 1 in your php.ini?)");
-}
-
 if(!function_exists('dump')){
     function dump($data){
         \Os\Framework\Debug\Dumper::dump($data);
