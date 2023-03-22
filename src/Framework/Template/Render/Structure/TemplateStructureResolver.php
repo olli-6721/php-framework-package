@@ -55,7 +55,10 @@ class TemplateStructureResolver
                     break;
             }
         }
-        $template->blocks = $this->parseBlocks($blockRegexMatches, $endblockRegexMatches);
+        if(!empty($blockRegexMatches) && !empty($endblockRegexMatches))
+            $template->blocks = $this->parseBlocks($blockRegexMatches, $endblockRegexMatches);
+        else
+            $template->blocks = new TemplateBlockCollection();
         return $template;
     }
 

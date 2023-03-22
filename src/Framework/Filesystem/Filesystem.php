@@ -70,7 +70,7 @@ class Filesystem
 
     public function fileExists(string $fileName): bool
     {
-        return file_exists(realpath($fileName));
+        return is_file(realpath($fileName)) && file_exists(realpath($fileName));
     }
 
     public function directoryExists(string $directory): bool
@@ -99,21 +99,25 @@ class Filesystem
         switch($flag){
             case self::FLAG_ONLY_DIRS:
                 foreach($items as $item) {
-                    if($this->directoryExists($item)){
+                    if($item === "." || $item === "..") continue;
+                    if($this->directoryExists(self::buildPath($directory, $item))){
                         $_items[] = $item;
                     }
                 }
                 break;
             case self::FLAG_ONLY_FILES:
                 foreach($items as $item) {
-                    $path = sprintf("%s%s%s", $directory, DIRECTORY_SEPARATOR, $item);
-                    if(is_file($path)){
+                    if($item === "." || $item === "..") continue;
+                    if($this->fileExists(self::buildPath($directory, $item))){
                         $_items[] = $item;
                     }
                 }
                 break;
             default:
-                $_items = $items;
+                foreach($items as $item) {
+                    if($item === "." || $item === "..") continue;
+                    $_items[] = $item;
+                }
                 break;
         }
 
